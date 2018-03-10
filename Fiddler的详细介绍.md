@@ -77,13 +77,13 @@ Custom | 允许用户设置自定义值
 
 3）AutoResponder 可用于拦截某一请求，即按自己添加的指定规则重定向到本地的资源或Fiddler资源，从而代替服务器响应。举例：将“baidu”这个关键字跟本地电脑的一张图片绑定了，再访问带有“baidu”关键字的地址，就会被劫持，具体步骤如图5所示：  
 
-![AutoResponder 选项卡](img/2-5.png)
+![AutoResponder 选项卡](img/2-5.gif)
 
 启用规则后（勾选enable rules），在浏览器输入pan.baidu.com，会发现被劫持了，显示的是绑定的本地图片，而不是pan.baidu.com的页面
 
 图6（被劫持）  
 
-![AutoResponder 选项卡](img/2-6.png)
+![AutoResponder 选项卡](img/2-6.gif)
 
 4）Composer 自定义请求发送服务器，Parsed模式下你只需要提供简单的URLS地址即可，如图7所示
 
