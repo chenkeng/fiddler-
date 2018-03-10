@@ -19,7 +19,9 @@
 
 图2（fiddler主界面）
 ![fiddler主界面](img/2-2.png)
-2、左边web session面板的字段及图标含义如下：
+
+2、左边web session面板的字段及图标含义如下： 
+
 名称 |含义
 --|--
 <prev>#<prev> | 抓取HTTP Request的顺序，从1开始，以此递增
