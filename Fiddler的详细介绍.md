@@ -113,7 +113,7 @@ b.Host 指定显示某个域名下的会话，如图10所示，如果框框为�
 命令 | 对应请求项 | 介绍 | 示例
 --|--|--|-- 
 ? | All |  问号后边跟一个字符串，可以匹配出包含这个字符串的请求 | ?google
-> |  Body | 大于号后面跟一个数字，可以匹配出请求大小，大于这个数字请求 | >1000
+<prev>></prev> |  Body | 大于号后面跟一个数字，可以匹配出请求大小，大于这个数字请求 | >1000
 < | Body |  小于号跟大于号相反，匹配出请求大小，小于这个数字的请求 | <100
 = | Result | 等于号后面跟数字，可以匹配HTTP返回码 | =200
 @ | Host |  @后面跟Host，可以匹配域名 |@www.baidu.com
@@ -127,10 +127,12 @@ bpafter | All | bpafter后边跟一个字符串，表示中断所有包含该字
 bpu  | All | 跟bpafter差不多，只不过这个是收到请求了，中断响应 |  bpu baidu（输入bpu解除断点）
 bps | Result | 后面跟状态吗，表示中断所有是这个状态码的请求 | bps 200（输入bps解除断点）
 bpv / bpm | HTTP方法 | 只中断HTTP方法的命令，HTTP方法如POST、GET | bpv get（输入bpv解除断点）
-g  / GO | All | 放行所有中断下来的请求 | g
+g  / GO | All | 放行所有中断下来的请求 | g 
+
  *注：
     * 1、如bpafter断点命令使用方法为：bpafter 后边跟字符串->表示中断所有包含该字符串的请求；   bpafter ->表示解除刚刚的中断断点；
 　　 * 2、该表来源于博客：http://blog.csdn.net/qq_21445563/article/details/51017605*
+
 3、中断会话后修改表单内容
 　　不知道什么原因捕获不了登录界面的会话（除了博客园网站外，其他很多网站的会话都捕获不到->解决方法：按上面‘Fiddler 设置解密HTTPS的网络数据’所写的步骤设置一下），所以下面的实例是来自小坦克的，详细博客地址在图片正文贴着。
 　　看个实例，模拟博客园的登录， 在IE中打开博客园的登录页面，输入错误的用户名和密码，用Fiddler中断会话，修改成正确的用户名密码。这样就能成功登录：
@@ -142,32 +144,40 @@ g  / GO | All | 放行所有中断下来的请求 | g
 
 图14（该实例来源于博客：http://kb.cnblogs.com/page/130367/）
 ![](img/2-14.png)
+
 4、Fiddler中会话比较功能
 　选中2个会话，右键然后点击Compare，就可以用WinDiff来比较两个会话的不同了（注：需要安装WinDiff，自行百度安装就可以了，这里就不细说安装步骤），如图15所示
 
 图15（compare功能）
+
 ![compare功能](img/2-15.png)
+
 5、Fiddler中提供的编码工具
 　　点击Fiddler 工具栏上的TextWizard,  这个工具可以Encode和Decode string，如图16所示
 
 图16（TextWizard界面）
 ![TextWizard界面](img/2-16.png)
+
 6、Fiddler中的查询会话
 　　Edit->Find Sessions（或Ctrl+F）打开Find Sessions的对话框，输入关键字查询你要的会话。 查询到的会话会用黄色显示，如图17所示
 
 图17（find session界面）
 ![find session界面](img/2-17.png)
+
 7、Fiddler中的保存会话
 　　有些时候我们需要把会话保存下来，以便发给别人或者以后去分析。  保存会话的步骤如下：File->Save->Selected Sessions
+
 8、Fiddler中的script系统
 　　首先先安装SyntaxView插件，Inspectors tab->Get SyntaxView tab->Download and Install SyntaxView Now... 如图18所示
 
 图18（安装SyntaxView插件）
 ![安装SyntaxView插件](img/2-18.png)
+
 　　安装成功后Fiddler 就会多了一个Fiddler Script tab，如图19所示：
 
 图19
 ![安装SyntaxView插件](img/2-19.png)
+
 　　在里面我们就可以编写脚本了， 看个实例让所有cnblogs的会话都显示红色。
 　　把这段脚本放在OnBeforeRequest(oSession: Session) 方法下，并且点击"Save script"
 　　（该段脚本来源于博客：http://kb.cnblogs.com/page/130367/）
@@ -175,6 +185,7 @@ if (oSession.HostnameIs("www.cnblogs.com")) {
 　　oSession["ui-color"] = "red";
 }
 　　这样所有的cnblogs的会话都会显示红色。
+
 9、如何在VS调试网站的时候使用Fiddler
 　　我们在用visual stuido 开发ASP.NET网站的时候也需要用Fiddler来分析HTTP， 默认的时候Fiddler是不能嗅探到localhost的网站。不过只要在localhost后面加个点号，Fiddler就能嗅探到。
 　　例如：原本ASP.NET的地址是 http://localhost:9999/Default.aspx，  加个点号后，变成 http://localhost.:9999/Default.aspx 就可以了
