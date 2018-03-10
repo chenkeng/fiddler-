@@ -60,6 +60,7 @@ Custom | 允许用户设置自定义值
   ![](img/3-22.gif)| 响应需要客户端证书验证
   ![](img/3-23.gif)| 服务端错误
   ![](img/3-24.gif)| 会话被客户端、Fiddler 或者服务端终止
+
 3、右边是详情和数据统计面板
 1）Statistics关于HTTP请求的性能（例如发送/接受字节数，发送/接收时间，还有粗略统计世界各地访问该服务器所花费的时间）以及数据分析。如图3所示：
 ![Statistics选项卡](img/2-3.png)
@@ -75,39 +76,48 @@ Custom | 允许用户设置自定义值
 
 图6（被劫持）
 ![AutoResponder 选项卡](img/2-6.png)
+
 4）Composer 自定义请求发送服务器，Parsed模式下你只需要提供简单的URLS地址即可，如图7所示
 
 图7（Composer选项卡）
 ![Composer选项卡](img/2-7.png)
+
 5）Filters 即过滤规则，通过设置过滤规则来过滤所需的http请求，如图8所示，勾选左上角的Use Filters开启过滤器：
 
 图8（Filters选项卡）
 ![Filters选项卡](img/2-8.png)
+
 　　而这里有两个最常用的过滤条件：Zone和Host
 a.Zone 指定只显示内网（Intranet）或互联网（Internet）的内容，如图9所示：
 
 图9
 ![Zone](img/2-9.png)
+
 b.Host 指定显示某个域名下的会话，如图10所示，如果框框为黄色，表示修改未生效，点击红圈里的文字即可：
 
 图10
 ![](img/2-10.png)
+
 6）timeline 请求响应时间，在左侧会话窗口点击一个或多个请求，Timeline 便会显示指定内容从服务端传输到客户端的时间，如图11所示：
 
 图11（timeline选项卡）
 ![timeline选项卡](img/2-11.png)
+
 ## 四、Fiddler的其他功能介绍
- 1、Fiddler 设置解密HTTPS的网络数据
+
+1. Fiddler 设置解密HTTPS的网络数据
 　Fiddler可以通过伪造CA证书来欺骗浏览器和服务器。大概原理就是在浏览器面前Fiddler伪装成一个HTTPS服务器，而在真正的HTTPS服务器面前Fiddler又装成浏览器，从而实现解密HTTPS数据包的目的。
 解密HTTPS需要手动开启，依次点击：Tools –> Fiddler Options –>  HTTPS ->勾选Decrypt HTTPS traffic -> 点击Yes，在弹出的对话框中选择是即可，如图12所示
 
 图12
 ![](img/2-12.png)
-2、Fiddler 内置命令与断点
+
+2. Fiddler 内置命令与断点
 　FIddler断点功能就是将请求截获下来，直接点击Fiddler下图的图标位置，就可以设置全部请求的断点，也可以在命令栏输入断点命令进行截获，如图13所示
 
 图13（断点）
 ![断点 选项卡](img/2-13.png)
+
 　　而断点的命令则可以精确设置需要截获那些请求，如下表所示：  
 
 命令 | 对应请求项 | 介绍 | 示例
@@ -133,9 +143,10 @@ g  / GO | All | 放行所有中断下来的请求 | g
     * 1、如bpafter断点命令使用方法为：bpafter 后边跟字符串->表示中断所有包含该字符串的请求；   bpafter ->表示解除刚刚的中断断点；
 　　 * 2、该表来源于博客：http://blog.csdn.net/qq_21445563/article/details/51017605*
 
-3、中断会话后修改表单内容
+3. 中断会话后修改表单内容
 　　不知道什么原因捕获不了登录界面的会话（除了博客园网站外，其他很多网站的会话都捕获不到->解决方法：按上面‘Fiddler 设置解密HTTPS的网络数据’所写的步骤设置一下），所以下面的实例是来自小坦克的，详细博客地址在图片正文贴着。
 　　看个实例，模拟博客园的登录， 在IE中打开博客园的登录页面，输入错误的用户名和密码，用Fiddler中断会话，修改成正确的用户名密码。这样就能成功登录：
+ 
 　　1. 用IE 打开博客园的登录界面  http://passport.cnblogs.com/login.aspx
 　　2. 打开Fiddler,  在命令行中输入bpu http://passport.cnblogs.com/login.aspx
 　　3. 输入错误的用户名和密码，点击登录
@@ -145,29 +156,29 @@ g  / GO | All | 放行所有中断下来的请求 | g
 图14（该实例来源于博客：http://kb.cnblogs.com/page/130367/）
 ![](img/2-14.png)
 
-4、Fiddler中会话比较功能
+4. Fiddler中会话比较功能
 　选中2个会话，右键然后点击Compare，就可以用WinDiff来比较两个会话的不同了（注：需要安装WinDiff，自行百度安装就可以了，这里就不细说安装步骤），如图15所示
 
 图15（compare功能）
 
 ![compare功能](img/2-15.png)
 
-5、Fiddler中提供的编码工具
+5. Fiddler中提供的编码工具
 　　点击Fiddler 工具栏上的TextWizard,  这个工具可以Encode和Decode string，如图16所示
 
 图16（TextWizard界面）
 ![TextWizard界面](img/2-16.png)
 
-6、Fiddler中的查询会话
+6. Fiddler中的查询会话
 　　Edit->Find Sessions（或Ctrl+F）打开Find Sessions的对话框，输入关键字查询你要的会话。 查询到的会话会用黄色显示，如图17所示
 
 图17（find session界面）
 ![find session界面](img/2-17.png)
 
-7、Fiddler中的保存会话
+7. Fiddler中的保存会话
 　　有些时候我们需要把会话保存下来，以便发给别人或者以后去分析。  保存会话的步骤如下：File->Save->Selected Sessions
 
-8、Fiddler中的script系统
+8. Fiddler中的script系统
 　　首先先安装SyntaxView插件，Inspectors tab->Get SyntaxView tab->Download and Install SyntaxView Now... 如图18所示
 
 图18（安装SyntaxView插件）
@@ -186,6 +197,6 @@ if (oSession.HostnameIs("www.cnblogs.com")) {
 }
 　　这样所有的cnblogs的会话都会显示红色。
 
-9、如何在VS调试网站的时候使用Fiddler
+9. 如何在VS调试网站的时候使用Fiddler
 　　我们在用visual stuido 开发ASP.NET网站的时候也需要用Fiddler来分析HTTP， 默认的时候Fiddler是不能嗅探到localhost的网站。不过只要在localhost后面加个点号，Fiddler就能嗅探到。
 　　例如：原本ASP.NET的地址是 http://localhost:9999/Default.aspx，  加个点号后，变成 http://localhost.:9999/Default.aspx 就可以了
