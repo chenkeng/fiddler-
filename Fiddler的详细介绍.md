@@ -205,4 +205,8 @@ if (oSession.HostnameIs("www.cnblogs.com")) {
 
 我们在开发网站的时候需要用Fiddler来分析HTTP,默认的时候Fiddler是不能嗅探到localhost的网站。不过只要在localhost后面加个点号，Fiddler就能嗅探到。
 
-例如：原本ASP.NET的地址是 http://localhost:9999/Default.aspx，  加个点号后，变成 http://localhost.:9999/Default.aspx 就可以了
+方法一：在localhost后增加.fiddler
+比如请求http://localhost:8080改为http://localhost.fiddler:8080即可
+
+方法二：更简单，在localhost或127.0.0.1后增加一个点即可
+比如http://localhost.:8080
