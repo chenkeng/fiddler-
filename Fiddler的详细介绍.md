@@ -97,7 +97,7 @@ Custom | 允许用户设置自定义值
 
 ![Filters选项卡](img/2-8.png)
 
-　　而这里有两个最常用的过滤条件：Zone和Host
+而这里有两个最常用的过滤条件：Zone和Host
 1. Zone 指定只显示内网（Intranet）或互联网（Internet）的内容，如图9所示：
 
 ![Zone](img/2-9.png)
@@ -149,15 +149,13 @@ g  / GO | All | 放行所有中断下来的请求 | g
 
 3. 中断会话后修改表单内容
 
-看个实例，模拟博客园的登录，在浏览器中打开博客园的登录页面，输入错误的用户名和密码，用Fiddler中断会话，修改成正确的用户名密码。这样就能成功登录：
+看个实例，模拟博客园的登录，在浏览器中下面的登录页面，输入错误的用户名和密码，用Fiddler中断会话，修改成正确的用户名密码。这样就能成功登录：
  
-　　1. 用IE 打开博客园的登录界面  http://passport.cnblogs.com/login.aspx  
+　　1. 用chrome打开博客园的登录界面  http://ts.pinewer.com/wap/tmpl/member/login.html
 
-　　2. 打开Fiddler,  在命令行中输入bpu http://passport.cnblogs.com/login.aspx  
+　　2. 输入错误的用户名和密码，点击登录  
 
-　　3. 输入错误的用户名和密码，点击登录  
-
-　　4. Fiddler 能中断这次会话，选择被中断的会话，点击Inspectors tab下的WebForms tab 修改用户名密码，然后点击Run to Completion 如图14所示。  
+　　3. Fiddler 能中断这次会话，选择被中断的会话，点击Inspectors tab下的WebForms tab 修改用户名密码，然后点击Run to Completion 如图14所示。  
 
 　　5. 结果是正确地登录了博客园（当然Fiddler中也能修改Response）
 
