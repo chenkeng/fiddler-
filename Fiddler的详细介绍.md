@@ -210,3 +210,5 @@ if (oSession.HostnameIs("www.cnblogs.com")) {
 
 方法二：更简单，在localhost或127.0.0.1后增加一个点即可
 比如http://localhost.:8080
+
+**参考教程 :**  [https://kb.cnblogs.com/page/130367/](https://kb.cnblogs.com/page/130367/)
